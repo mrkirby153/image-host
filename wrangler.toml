@@ -1,3 +1,11 @@
 name = "image-host"
 main = "src/index.ts"
 compatibility_date = "2023-04-16"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "image-host"
+preview_bucket_name = "image-host"
+
+[vars]
+USERNAME = "mrkirby153"
