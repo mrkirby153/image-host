@@ -85,4 +85,17 @@ app.get('/:key', async (c) => {
 	})
 })
 
+app.delete('/:key', async (c, next) => {
+	const auth = basicAuth({
+		username: c.env.USERNAME, password: c.env.PASSWORD
+	})
+	await auth(c, next)
+})
+
+app.delete('/:key', async (c) => {
+	const key = c.req.param('key');
+	await c.env.BUCKET.delete(key);
+	return c.body('OK');
+});
+
 export default app
