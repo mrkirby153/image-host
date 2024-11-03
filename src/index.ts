@@ -78,7 +78,6 @@ app.get("/:key", async (c) => {
   const key = c.req.param("key");
 
   const object = await c.env.BUCKET.get(key);
-  console.log(object);
   if (!object) return c.notFound();
   const data = await object.arrayBuffer();
   let contentType = object.httpMetadata?.contentType || "";
